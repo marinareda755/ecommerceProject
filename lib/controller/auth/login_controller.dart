@@ -88,7 +88,10 @@
 // }
 
 import 'package:ecommerceproject/core/constant/routes.dart';
+import 'package:ecommerceproject/ecoomercePlus/screen/auth/Home.dart';
 import 'package:ecommerceproject/ecoomercePlus/screen/auth/HomeScreen.dart';
+import 'package:ecommerceproject/view/screen/HomeScreen.dart';
+import 'package:ecommerceproject/view/screen/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

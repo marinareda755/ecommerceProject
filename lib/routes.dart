@@ -30,7 +30,7 @@ List<GetPage<dynamic>>? routes=[
   GetPage(name: AppRoute.successSignUp, page: ()=>SuccessSignUp()),
   GetPage(name: AppRoute.verifyEmailSignUp, page: ()=>VerfiyEmailSignUp()),
   GetPage(name: AppRoute.onBoarding, page: ()=>OnBoarding()),
-  GetPage(name: AppRoute.home, page: ()=>Home()),
+  // GetPage(name: AppRoute.home, page: ()=>Home()),
   GetPage(name: AppRoute.cart, page: ()=>Cart()),
   GetPage(name: AppRoute.profile, page: ()=>Profile()),
 ];

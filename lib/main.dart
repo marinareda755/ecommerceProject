@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       // locale: Get.deviceLocale,
       locale: controller.language,
       // initialBinding: InitialBindings(),
-      // initialBinding: MyBinding(),
+      initialBinding: MyBinding(),
 
       translations: MyTranslation(),
       theme: ThemeData(

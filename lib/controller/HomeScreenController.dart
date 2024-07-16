@@ -15,7 +15,7 @@ class HomeScreenControllerImp extends HomeScreenController {
 
   List<Widget> listPage = [
     const HomePage(),
-    const HomePage(),
+
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [Center(child: Text("Profile"))],
@@ -29,7 +29,6 @@ class HomeScreenControllerImp extends HomeScreenController {
 
   List bottomappbar = [
     {"title": "home", "icon": Icons.home},
-    {"title": "ntofication", "icon": Icons.notifications_active_outlined},
     {"title": "profile", "icon": Icons.person_pin_sharp},
     {"title": "settings", "icon": Icons.settings}
   ];

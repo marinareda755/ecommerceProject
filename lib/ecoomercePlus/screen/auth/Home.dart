@@ -80,7 +80,7 @@ class HomePage extends StatelessWidget {
                     final category = categoryController.categories[index];
                     return GestureDetector(
                       onTap: () {
-                        
+
                         Get.to(Items());
                       },
                       child: Container(
