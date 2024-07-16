@@ -17,15 +17,17 @@ class CustomBottomAppBarHome extends StatelessWidget {
               children: [
 
                 ...List.generate(controller.listPage.length , ((index) {
-                  int i = index > 4? index - 1 : index;
+                  int i = index > 3? index - 1 : index;
                   return
-                       CustomButtonAppBar(
-                      textbutton: controller.bottomappbar[i]['title'],
-                      icondata: controller.bottomappbar[i]['icon'],
-                      onPressed: () {
-                        controller.changePage(i);
-                      },
-                      active: controller.currentpage == i ? true : false);
+                       Expanded(
+                         child: CustomButtonAppBar(
+                                               textbutton: controller.bottomappbar[i]['title'],
+                                               icondata: controller.bottomappbar[i]['icon'],
+                                               onPressed: () {
+                          controller.changePage(i);
+                                               },
+                                               active: controller.currentpage == i ? true : false),
+                       );
                 }))
               ],
             )));

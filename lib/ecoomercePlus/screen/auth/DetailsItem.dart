@@ -2,31 +2,44 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../view/screen/cart1.dart';
+import '../../../controller/ItemController.dart';
+import '../../data/models/ItemModel.dart';
+import 'cart.dart';
+
+
 
 class DetailsItem extends StatelessWidget {
-  const DetailsItem({super.key});
+  final Item item;
+
+  const DetailsItem({super.key, required this.item, });
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    final ItemController itemController = Get.put(ItemController());
+
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    return Scaffold(
       bottomNavigationBar: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          height: 40,
-          child: MaterialButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              color: Colors.red,
-              onPressed: () {
-                Get.to(Cart());
-              },
-              child: const Text(
-                "Add To Cart",
-                style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.bold),
-              ))),
-
-
+        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        height: 40,
+        child: MaterialButton(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          color: Colors.red,
+          onPressed: () {
+            Get.to(Cart());
+          },
+          child: const Text(
+            "Add To Cart",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
       backgroundColor: Colors.white,
       endDrawer: const Drawer(),
       appBar: AppBar(
@@ -48,70 +61,73 @@ class DetailsItem extends StatelessWidget {
         backgroundColor: Colors.grey[200],
         elevation: 0.0,
       ),
-
       body: ListView(
-        children: [
-          Image.asset('assets/Imagesprofile.jpg'),
-          SizedBox(height: 20,),
-          Container(
+          children: [
+            Image.network(item.image),
+            SizedBox(height: 20),
+            Container(
               child: Text(
-                'widget.data[title]',
+                item.name,
                 textAlign: TextAlign.center,
-              )),
-          Container(
-              child: Text(
-                'widget.data[subtitle]',
-                textAlign: TextAlign.center,
-              )),
-          Container(
-              child: Text(
-                'widget.data[price]',
-                textAlign: TextAlign.center,
-              )),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Color:'),
-              SizedBox(
-                height: 10,width:10,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              Container(
-                height: 30,
-                width: 30,
-                decoration: BoxDecoration(
+            ),
+            Container(
+              child: Text(
+                item.categories,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            Container(
+              child: Text(
+                '\$${item.price}',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.red,
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Color:'),
+                SizedBox(width: 10),
+                Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(30),
-                    border: Border.all(color: Colors.orange)),
-              ),
-              SizedBox(width: 5,),
-              Text('Gray'),
-              SizedBox(
-                height: 10,width: 5,
-              ),
-              Container(
-                height: 30,
-                width: 30,
-                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.orange),
+                  ),
+                ),
+                SizedBox(width: 5),
+                Text('Gray'),
+                SizedBox(width: 5),
+                Container(
+                  height: 30,
+                  width: 30,
+                  decoration: BoxDecoration(
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(30),
-                    border: Border.all(color: Colors.black)),
-              ),
-              SizedBox(width: 5,),
-              Text('Black'),
-              SizedBox(
-                height: 10,width: 5,
-              ),
-              Container(
-                height: 30,
-                width: 30,
-                // decoration: BoxDecoration(
-                //     color: Colors.black,
-                //     borderRadius: BorderRadius.circular(30),
-                //     border: Border.all(color: Colors.black)),
-              )
-            ],
-          ),
-            SizedBox(height: 30,),
+                    border: Border.all(color: Colors.black),
+                  ),
+                ),
+                SizedBox(width: 5),
+                Text('Black'),
+              ],
+            ),
+            SizedBox(height: 30),
     //         Container(
     //         width: double.infinity,
     //           padding: EdgeInsets.symmetric(horizontal: 100),
