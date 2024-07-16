@@ -1,3 +1,4 @@
+import 'package:ecommerceproject/ecoomercePlus/data/models/ItemModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -5,7 +6,7 @@ import 'package:get/get.dart';
 import '../../ecoomercePlus/screen/auth/cart.dart';
 
 class DetailsItem extends StatelessWidget {
-  const DetailsItem({super.key});
+  const DetailsItem({super.key, required Item item});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,7 @@ class DetailsItem extends StatelessWidget {
 
       body: ListView(
         children: [
-          Image.asset('assets/Imagesprofile.jpg'),
+          Image.asset('assets/images/profile.jpg'),
           SizedBox(height: 20,),
           Container(
               child: Text(

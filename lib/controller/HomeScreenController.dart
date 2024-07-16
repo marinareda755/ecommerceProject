@@ -4,6 +4,7 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 import '../ecoomercePlus/screen/auth/Home.dart';
 import '../ecoomercePlus/screen/auth/Setting.dart';
+import '../ecoomercePlus/screen/auth/cart.dart';
 
 
 abstract class HomeScreenController extends GetxController {
@@ -15,11 +16,14 @@ class HomeScreenControllerImp extends HomeScreenController {
 
   List<Widget> listPage = [
     const HomePage(),
-    const HomePage(),
+
+
+
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [Center(child: Text("Profile"))],
     ),
+    const Cart(),
 
     const Setting(),
 
@@ -29,9 +33,10 @@ class HomeScreenControllerImp extends HomeScreenController {
 
   List bottomappbar = [
     {"title": "home", "icon": Icons.home},
-    {"title": "ntofication", "icon": Icons.notifications_active_outlined},
     {"title": "profile", "icon": Icons.person_pin_sharp},
+    {"title": "cart", "icon": Icons.shopping_cart},
     {"title": "settings", "icon": Icons.settings}
+
   ];
 
   @override

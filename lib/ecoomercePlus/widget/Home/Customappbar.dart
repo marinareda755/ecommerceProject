@@ -16,7 +16,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
             child: Row(
               children: [
                 ...List.generate(controller.listPage.length , ((index) {
-                  int i = index > 4? index - 1 : index;
+                  int i = index > 3? index - 1 : index;
                   return
                        CustomButtonAppBar(
                       textbutton: controller.bottomappbar[i]['title'],

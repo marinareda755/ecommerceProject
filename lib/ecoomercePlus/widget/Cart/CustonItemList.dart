@@ -14,7 +14,7 @@ class CustonItemList extends StatelessWidget {
         children: [
           Expanded(
               flex:2,
-              child: Image.asset('assets/Imagesprofile.jpg',height: 90,fit: BoxFit.cover,)),
+              child: Image.asset('assets/images/profile.jpg',height: 90,fit: BoxFit.cover,)),
           Expanded(
               flex: 3,
               child: ListTile(

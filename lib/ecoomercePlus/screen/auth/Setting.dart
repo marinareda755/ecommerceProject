@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../view/screen/language.dart';
+
 
 class Setting extends StatelessWidget {
   const Setting({super.key});
@@ -74,7 +76,7 @@ class Setting extends StatelessWidget {
                 ),
                 ListTile(
                   onTap: () {
-                    // controller.logout();
+                    Get.to(Language());
                   },
                   title: Text("Logout"),
                   trailing: Icon(Icons.exit_to_app),
