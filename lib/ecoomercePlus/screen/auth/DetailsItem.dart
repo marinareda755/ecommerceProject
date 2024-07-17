@@ -29,6 +29,13 @@ class DetailsItem extends StatelessWidget {
           ),
           color: Colors.red,
           onPressed: () {
+            // _firestore.collection('addToCard').add({
+            //   'name': messageText,
+            //   'user': signedInUser.email ?? "",
+            //   'image': signedInUser.email ?? "",
+            //   'price': signedInUser.email ?? "",
+
+            // });
             Get.to(Cart());
           },
           child: const Text(
