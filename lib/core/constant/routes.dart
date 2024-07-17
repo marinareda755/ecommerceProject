@@ -9,7 +9,10 @@ class AppRoute{
   static const String successSignUp='/successsignup';
 
   static const String verifyEmailSignUp='/verifyemailsignup';
-  static const String home='/home';
+  // static const String home='/home';
   static const String cart='/cart';
   static const String profile='/profile';
+  static const String homeScreen='/homescreen';
+  static const String homePage='/homepage';
+  static const String setting='/Setting';
 }

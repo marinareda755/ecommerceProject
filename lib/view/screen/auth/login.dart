@@ -1,6 +1,5 @@
 import 'package:ecommerceproject/controller/auth/login_controller.dart';
 import 'package:ecommerceproject/core/constant/color.dart';
-import 'package:ecommerceproject/core/constant/routes.dart';
 import 'package:ecommerceproject/core/functions/alertexitapp.dart';
 import 'package:ecommerceproject/core/functions/validinput.dart';
 import 'package:ecommerceproject/view/widget/auth/custombuttonauth.dart';
@@ -24,7 +23,8 @@ class Login extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
         title: Text(
-          'Sign In',
+
+          '9'.tr,
           style: Theme.of(context)
               .textTheme
               .headlineLarge!
@@ -40,7 +40,7 @@ class Login extends StatelessWidget {
             children: [
               LogoAuth(),
               CustomTextTitleAuth(
-                text: 'Welcome Back',
+                text: '10'.tr,
               ),
               SizedBox(
                 height: 10,

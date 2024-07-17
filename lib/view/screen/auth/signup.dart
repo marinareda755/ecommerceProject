@@ -60,7 +60,7 @@ class SignUp extends StatelessWidget {
                 CustomTextFormAuth(
                   keyboardType: TextInputType.emailAddress,
                   valid: (val){
-                    return validInput(val!, 5, 100, 'email');
+                    return validInput(val!, 15, 100, 'email');
                   },
                   mycontroller: controller.email,
                   iconData: Icons.email_outlined,
