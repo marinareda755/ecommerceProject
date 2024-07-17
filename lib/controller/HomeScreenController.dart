@@ -1,3 +1,4 @@
+import 'package:ecommerceproject/view/screen/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
@@ -19,10 +20,7 @@ class HomeScreenControllerImp extends HomeScreenController {
 
 
 
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [Center(child: Text("Profile"))],
-    ),
+   const Profile(),
     const Cart(),
 
     const Setting(),
