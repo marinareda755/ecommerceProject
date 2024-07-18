@@ -54,9 +54,15 @@ class CustomButtonNavigation extends StatelessWidget {
           ),
           SizedBox(height: 10,),
 
-          CustomButtonCart(
-            textButton:'Place Order' ,
-            onPressed: (){},
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 25),
+            child: CustomButtonCart(
+              textButton:'Place Order' ,
+              onPressed: (){
+
+                // Get.to();
+              },
+            ),
           )
         ],
       ),

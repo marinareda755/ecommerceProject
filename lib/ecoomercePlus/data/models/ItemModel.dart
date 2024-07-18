@@ -7,8 +7,10 @@ class Item {
   final String price;
   final String name;
   final String categories;
+  final String description;
 
-  Item({required this.image, required this.price, required this.name, required this.categories});
+
+  Item(  { required this.image,  required this.price,  required this.name, required this.categories,required this.description,});
 
   factory Item.fromFirestore(DocumentSnapshot doc) {
     Map data = doc.data() as Map;
@@ -17,6 +19,7 @@ class Item {
       price: data['price'] ?? '',
       name: data['name'] ?? '',
       categories: data['categories'] ?? '',
+      description: data['description'] ?? '',
     );
   }
 }

@@ -15,6 +15,7 @@ import 'package:ecommerceproject/view/screen/auth/forgetpassword/verfiycode.dart
 import 'package:ecommerceproject/view/screen/auth/verifyemailsignup.dart';
 import 'package:ecommerceproject/view/screen/home.dart';
 import 'package:ecommerceproject/view/screen/language.dart';
+import 'package:ecommerceproject/view/screen/languagesetting.dart';
 import 'package:ecommerceproject/view/screen/onboarding.dart';
 import 'package:ecommerceproject/view/screen/profile.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,7 @@ List<GetPage<dynamic>>? routes=[
   GetPage(name: AppRoute.homePage, page: ()=>HomePage()),
   GetPage(name: AppRoute.aboutUs, page: ()=>AboutUs()),
   GetPage(name: AppRoute.contactUs, page: ()=>ContactUs()),
-  GetPage(name: AppRoute.languageSetting, page: ()=>Language()),
+  GetPage(name: AppRoute.languageSetting, page: ()=>LanguageSetting()),
 ];
 
 

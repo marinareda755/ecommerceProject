@@ -136,9 +136,9 @@ class Profile extends StatelessWidget {
                               backgroundColor: Colors.grey[100],
                               backgroundImage: controller.imageFile != null
                                   ? FileImage(controller.imageFile!)
-                                  : controller.myServices.sharedPreferences.getString('profileImageUrl') != null
-                                  ? NetworkImage(controller.myServices.sharedPreferences.getString('profileImageUrl')!)
-                                  : AssetImage(AppImageAsset.profile) as ImageProvider,
+                                  : controller.myServices.sharedPreferences.getString('profileImageUrl') == null || controller.myServices.sharedPreferences.getString('profileImageUrl') == ''
+                                  ?AssetImage(AppImageAsset.profile)
+                                  :NetworkImage(controller.myServices.sharedPreferences.getString('profileImageUrl')!) ,
                             ),
                           ),
                           Positioned(
@@ -157,7 +157,7 @@ class Profile extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              controller.getUserEmail(),
+                              controller.myServices.sharedPreferences.getString('email')!,
                               style: TextStyle(
                                   color: AppColor.primaryColor, fontSize: 16),
                             ),

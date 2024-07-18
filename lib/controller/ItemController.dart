@@ -4,52 +4,58 @@ import 'package:get/get.dart';
 
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-class ItemController extends GetxController {
-  var items = <Item>[].obs;
+import 'CategoriesController.dart';
+
+class ItemController extends GetxController  {
+  var item = <Item>[].obs;
+
+
+
+
+  // @override
+  // void onInit() {
+  //   fetchItem();
+  //    fetchItems();
+  // }
 
   @override
   void onInit() {
-    super.onInit();
+
     fetchItems();
-  }
+    // fetchSubjectTree(Get.find<HomeController>().subjectID.value);
+    print("objectttt");
+    super.onInit();
 
+  }
   void fetchItems() async {
-    QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('items').get();
+    print("lklkll"+Get.find<CategoryController>().category.value);
+    QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('items')
+       .where('categories', isEqualTo:Get.find<CategoryController>().category.value)
+    .get();
     var itemList = snapshot.docs.map((doc) => Item.fromFirestore(doc)).toList();
-    items.assignAll(itemList);
+    item.assignAll(itemList);
+    update();
   }
+
 }
-
-
-
-
-
-// abstract class ItemsController extends GetxController {
-//   intialData();
-//   changeCat(int val);
-// }
-//
-// class ItemsControllerImp extends ItemsController {
-//   List categories = [
-//
-//   ];
-//   int? selectedCat;
+// class ItemsController extends GetxController {
+//   var items = <Item>[].obs;
 //
 //   @override
 //   void onInit() {
-//     intialData();
 //     super.onInit();
+//     fetchItems();
 //   }
 //
-//   @override
-//   intialData() {
-//     categories = Get.arguments['categories'];
-//     selectedCat = Get.arguments['selectedcat'];
-//   }
-//
-//   @override
-//   changeCat(val) {
-//     selectedCat = val;
-//     update();
+//   void fetchItems(String category) async {
+//     QuerySnapshot snapshot = await FirebaseFirestore.instance
+//         .collection('items')
+//         .where('category', isEqualTo: category)
+//         .get();
+//     var itemsList = snapshot.docs.map((doc) => Item.fromFirestore(doc)).toList();
+//     items.assignAll(itemsList);
 //   }
 // }
+
+
+

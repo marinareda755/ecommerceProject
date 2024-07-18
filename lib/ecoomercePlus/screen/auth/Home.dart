@@ -1,27 +1,28 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../controller/CategoriesController.dart';
-import '../../../controller/ItemController.dart';
 import 'DetailsItem.dart';
 import 'Items.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
 
+   HomePage({super.key});
+  final controller_ = Get.put(CategoryController());
   @override
   Widget build(BuildContext context) {
-    final ItemController itemController = Get.put(ItemController());
-    final CategoryController categoryController = Get.put(CategoryController());
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+  
+    // final screenWidth = MediaQuery.of(context).size.width;
+    // final screenHeight = MediaQuery.of(context).size.height;
+    return GetBuilder<CategoryController>(
+        init: CategoryController(),
+    builder: (controller) {
     return Scaffold(
-      body: Obx(() {
-        if (itemController.items.isEmpty) {
-          return Center(child: CircularProgressIndicator());
-        }
-        return Container(
+      body:
+       controller.items.isEmpty ?
+           Center(child: CircularProgressIndicator()):
+
+         Container(
           child: ListView(
             children: [
               Container(
@@ -76,15 +77,25 @@ class HomePage extends StatelessWidget {
               ),
               Container(
                 height: 150,
-                child: Obx(() {
-                  return ListView.builder(
-                    itemCount: categoryController.categories.length,
+                child:  ListView.builder(
+                    itemCount: controller.categories.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      final category = categoryController.categories[index];
+                      final category = controller.categories[index];
                       return GestureDetector(
                         onTap: () {
-                          Get.to(Items());
+
+
+                        controller_.category.value=category.title;
+                          // controller_.category.value="shoes";
+                          // print("lklkll"+controller_.category.value);
+                          // controller_.update();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>  Items())
+                          );
+                          // Get.to(Items());
                         },
                         child: Container(
                           margin: EdgeInsets.all(10),
@@ -104,7 +115,7 @@ class HomePage extends StatelessWidget {
                                 padding: EdgeInsets.all(10),
                               ),
                               Text(
-                                category.title,
+                                category.title.toString(),
                                 style: TextStyle(fontSize: 20),
                               ),
                             ],
@@ -112,8 +123,8 @@ class HomePage extends StatelessWidget {
                         ),
                       );
                     },
-                  );
-                }),
+                  )
+
               ),
               Text(
                 'Best Selling',
@@ -125,11 +136,11 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: 10),
               GridView.builder(
-                itemCount: itemController.items.length,
+                itemCount:6,
                 itemBuilder: (context, i) {
                   return InkWell(
                     onTap: () {
-                      Get.to(DetailsItem(item: itemController.items[i]));
+                      Get.to(DetailsItem(item: controller.items[i]));
                     },
                     child: Container(
 
@@ -142,9 +153,10 @@ class HomePage extends StatelessWidget {
                               child: Center(
                                 child: Container(
 
+
                                   color: Colors.grey[200],
                                   child: Image.network(
-                                    itemController.items[i].image,
+                                    controller.items[i].image,
                                     width: MediaQuery.of(context).size.width / 2.8,
                                     height: MediaQuery.of(context).size.width / 2.8,
                                     fit: BoxFit.fill,
@@ -159,21 +171,21 @@ class HomePage extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              itemController.items[i].name,
+                              controller.items[i].name,
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             Text(
-                              itemController.items[i].categories,
+                              controller.items[i].categories,
                               style: TextStyle(
                                 fontSize: 10,
                                 color: Colors.grey,
                               ),
                             ),
                             Text(
-                              '\$${itemController.items[i].price}',
+                              '\$${controller.items[i].price}',
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.red[400],
@@ -193,8 +205,8 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
-        );
-      }),
-    );
+        ),
+
+    );});
   }
 }

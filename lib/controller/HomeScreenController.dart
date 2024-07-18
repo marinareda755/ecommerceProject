@@ -16,12 +16,12 @@ class HomeScreenControllerImp extends HomeScreenController {
   int currentpage = 0;
 
   List<Widget> listPage = [
-    const HomePage(),
+     HomePage(),
 
 
 
    const Profile(),
-    const Cart(),
+     Cart(),
 
     const Setting(),
 
