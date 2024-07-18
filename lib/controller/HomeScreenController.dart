@@ -21,7 +21,7 @@ class HomeScreenControllerImp extends HomeScreenController {
 
 
    const Profile(),
-    const Cart(),
+     Cart(),
 
     const Setting(),
 

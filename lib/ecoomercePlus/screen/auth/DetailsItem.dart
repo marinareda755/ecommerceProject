@@ -1,8 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../controller/ItemController.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../data/models/ItemModel.dart';
 import 'cart.dart';
 
@@ -11,14 +11,22 @@ import 'cart.dart';
 class DetailsItem extends StatelessWidget {
   final Item item;
 
-  const DetailsItem({super.key, required this.item, });
-
+   DetailsItem({super.key, required this.item, });
+  late SharedPreferences sharedPreferences;
+  late  String mail;
+  void getShared() async{
+    sharedPreferences= await SharedPreferences.getInstance();
+    mail=sharedPreferences.getString('email').toString();
+    print("object"+mail.toString());
+  }
   @override
   Widget build(BuildContext context) {
-    final ItemController itemController = Get.put(ItemController());
 
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+
+
+    final _firestore = FirebaseFirestore.instance;
+
+
     return Scaffold(
       bottomNavigationBar: Container(
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -29,13 +37,14 @@ class DetailsItem extends StatelessWidget {
           ),
           color: Colors.red,
           onPressed: () {
-            // _firestore.collection('addToCard').add({
-            //   'name': messageText,
-            //   'user': signedInUser.email ?? "",
-            //   'image': signedInUser.email ?? "",
-            //   'price': signedInUser.email ?? "",
+            getShared();
+            _firestore.collection('addToCard').add({
+              'name': item.name,
+              'user': mail,
+              'image': item.image,
+              'price': item.price,
 
-            // });
+            });
             Get.to(Cart());
           },
           child: const Text(
