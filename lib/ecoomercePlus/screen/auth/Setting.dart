@@ -61,20 +61,24 @@ class Setting extends StatelessWidget {
                 //   trailing: Icon(Icons.card_travel),
                 //   title: Text("Archive"),
                 // ),
-                // ListTile(
-                //   onTap: () {
-                //     // Get.toNamed(AppRoute.addressview);
-                //   },
-                //   trailing: Icon(Icons.location_on_outlined),
-                //   title: Text("Address"),
-                // ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(AppRoute.languageSetting);
+                  },
+                  trailing: Icon(Icons.language),
+                  title: Text("Language"),
+                ),
+                ListTile(
+                  onTap: () {
+                    Get.toNamed(AppRoute.aboutUs);
+                  },
                   trailing: Icon(Icons.help_outline_rounded),
                   title: Text("About us"),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(AppRoute.contactUs);
+                  },
                   trailing: Icon(Icons.phone_callback_outlined),
                   title: Text("Contact us"),
                 ),

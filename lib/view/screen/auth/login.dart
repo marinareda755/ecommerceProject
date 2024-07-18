@@ -1,5 +1,6 @@
 import 'package:ecommerceproject/controller/auth/login_controller.dart';
 import 'package:ecommerceproject/core/constant/color.dart';
+import 'package:ecommerceproject/core/constant/imageasset.dart';
 import 'package:ecommerceproject/core/functions/alertexitapp.dart';
 import 'package:ecommerceproject/core/functions/validinput.dart';
 import 'package:ecommerceproject/view/widget/auth/custombuttonauth.dart';
@@ -87,6 +88,26 @@ class Login extends StatelessWidget {
                   controller.login();
                 },
               ),
+              SizedBox(height: 20,),
+              MaterialButton(
+                  height: 40,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50)),
+                  color: Colors.red[700],
+                  textColor: Colors.white,
+                  onPressed: () {
+                    controller.signInWithGoogle();
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text('Login With Google   '),
+                      Image.asset(
+                        AppImageAsset.google,
+                        width: 20,
+                      )
+                    ],
+                  )),
               SizedBox(
                 height: 30,
               ),

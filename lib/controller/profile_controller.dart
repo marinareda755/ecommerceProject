@@ -100,6 +100,7 @@ import 'package:ecommerceproject/core/services/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 
 abstract class ProfileController extends GetxController{
@@ -122,8 +123,10 @@ class ProfileControllerImp extends ProfileController{
 
   @override
   logOut() async {
+    GoogleSignIn googleSignIn=GoogleSignIn();
+    googleSignIn.disconnect();
     await FirebaseAuth.instance.signOut();
-    myServices.sharedPreferences.clear();
+    // myServices.sharedPreferences.clear();
     Get.offNamed(AppRoute.login);
 
 

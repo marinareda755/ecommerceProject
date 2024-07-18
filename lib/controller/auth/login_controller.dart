@@ -97,6 +97,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 abstract class LoginController extends GetxController {
   login();
@@ -104,6 +105,7 @@ abstract class LoginController extends GetxController {
   goToSignUp();
 
   goToForgetPassword();
+  signInWithGoogle();
 }
 
 class LoginControllerImp extends LoginController {
@@ -222,6 +224,38 @@ class LoginControllerImp extends LoginController {
     }
 
     Get.offNamed(AppRoute.login);
+  }
+
+  @override
+
+  Future signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    if(googleUser==null){
+      return;
+    }
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    await FirebaseAuth.instance.signInWithCredential(credential);
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null){
+      await myServices.sharedPreferences.setString('email', user!.email.toString());
+      await myServices.sharedPreferences.setString('id', user.uid);
+      myServices.sharedPreferences.setString('step', '2');
+      print("================================"+user!.email.toString());
+    }
+      // Get.offNamed(AppRoute.homeScreen);
+    Get.offAllNamed(AppRoute.homeScreen);
+
   }
 }
 

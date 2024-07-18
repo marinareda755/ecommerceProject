@@ -11,5 +11,6 @@ class AppImageAsset{
    // static const String cart='$rootImages/Icon_Cart.png';
    // static const String user='$rootImages/Icon_User.png';
    static const String profile='$rootImages/profile.jpg';
+   static const String google='$rootImages/google.png';
 
 }
