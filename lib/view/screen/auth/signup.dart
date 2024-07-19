@@ -23,7 +23,7 @@ class SignUp extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
         title: Text(
-          'Sign Up',
+          '17'.tr,
           style: Theme.of(context)
               .textTheme
               .headlineLarge!
@@ -38,12 +38,12 @@ class SignUp extends StatelessWidget {
             key: controller.formstate,
             child: ListView(
               children: [
-                CustomTextTitleAuth(text:'Welcome Back' ,),
+                CustomTextTitleAuth(text:'10'.tr ,),
 
                 SizedBox(
                   height: 10,
                 ),
-                CustomTextBodyAuth(text:'Sign Up Your Email And Password Or Continue With Social Media  ' ),
+                CustomTextBodyAuth(text:'24'.tr ),
                 SizedBox(
                   height: 30,
                 ),
@@ -51,8 +51,8 @@ class SignUp extends StatelessWidget {
                   keyboardType: TextInputType.name,
                   mycontroller: controller.userName,
                   iconData: Icons.person_outline,
-                  hinttext: 'Enter Your Username',
-                  labeltext: 'Username', valid: (val ) {
+                  hinttext: '23'.tr,
+                  labeltext: '20'.tr, valid: (val ) {
                   return validInput(val!, 10, 100, 'username');
                 },
                   // mycontroller: emailu,
@@ -65,8 +65,8 @@ class SignUp extends StatelessWidget {
                   },
                   mycontroller: controller.email,
                   iconData: Icons.email_outlined,
-                  hinttext: 'Enter Your Email',
-                  labeltext: 'Email',
+                  hinttext: '12'.tr,
+                  labeltext: '18'.tr,
                   // mycontroller: emailu,
                 ),
                 CustomTextFormAuth(
@@ -76,8 +76,8 @@ class SignUp extends StatelessWidget {
                   },
                   mycontroller: controller.phone,
                   iconData: Icons.phone_outlined,
-                  hinttext: 'Enter Your Phone',
-                  labeltext: 'Phone',
+                  hinttext: '22'.tr,
+                  labeltext: '21'.tr,
                   // mycontroller: emailu,
                 ),
                 CustomTextFormAuth(
@@ -88,15 +88,15 @@ class SignUp extends StatelessWidget {
                     },
                     mycontroller: controller.password,
                     iconData:Icons.lock_outline ,
-                    hinttext:'Enter Your Password',
-                    labeltext: 'Password'),
-                CustomButtonAuth(text: 'Sign Up',onPressed: (){
+                    hinttext:'13'.tr,
+                    labeltext: '19'.tr),
+                CustomButtonAuth(text: '17'.tr,onPressed: (){
                   controller.signUp();
                 },),
 
 
                 SizedBox(height: 30,),
-                CustomTextSignUpOrSignIn(textone: ' Have An Account ?   ', texttwo: 'Sign In', onTap: () {
+                CustomTextSignUpOrSignIn(textone: '25'.tr, texttwo: '9'.tr, onTap: () {
                   controller.goToSignIn();
                 },)
               ],

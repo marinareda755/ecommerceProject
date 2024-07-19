@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
                       alignment: Alignment.center,
                       child: ListTile(
                         title: Text(
-                          'A summer Surprise',
+                          '39'.tr,
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         subtitle: Text(
-                          'Cashback 30%',
+                          '40'.tr,
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                'Categories',
+                '41'.tr,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               ),
               Container(
@@ -127,7 +127,7 @@ class HomePage extends StatelessWidget {
 
               ),
               Text(
-                'Best Selling',
+                '42'.tr,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,

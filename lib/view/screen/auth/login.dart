@@ -48,7 +48,7 @@ class Login extends StatelessWidget {
               ),
               CustomTextBodyAuth(
                   text:
-                  'Sign In Your Email And Password Or Continue With Social Media  '),
+                  '11'.tr),
               SizedBox(
                 height: 30,
               ),
@@ -59,8 +59,8 @@ class Login extends StatelessWidget {
                 },
                 mycontroller: controller.email,
                 iconData: Icons.email_outlined,
-                hinttext: 'Enter Your Email',
-                labeltext: 'Email',
+                hinttext: '12'.tr,
+                labeltext: '18'.tr,
                 // mycontroller: emailu,
               ),
               CustomTextFormAuth(
@@ -71,19 +71,19 @@ class Login extends StatelessWidget {
                   },
                   mycontroller: controller.password,
                   iconData: Icons.lock_outline,
-                  hinttext: 'Enter Your Password',
-                  labeltext: 'Password'),
+                  hinttext: '13'.tr,
+                  labeltext: '19'.tr),
               InkWell(
                 onTap: (){
                   controller.goToForgetPassword();
                 },
                 child: Text(
-                  'Forget Password',
+                  '14'.tr,
                   textAlign: TextAlign.right,
                 ),
               ),
               CustomButtonAuth(
-                text: 'Sign In',
+                text: '15'.tr,
                 onPressed: () {
                   controller.login();
                 },
@@ -112,8 +112,8 @@ class Login extends StatelessWidget {
                 height: 30,
               ),
               CustomTextSignUpOrSignIn(
-                textone: 'Donnot have an account?  ',
-                texttwo: 'Sign Up',
+                textone: '16'.tr,
+                texttwo: '17'.tr,
                 onTap: () {
                   controller.goToSignUp();
                 },

@@ -23,7 +23,7 @@ class CustomButtonAppBar extends StatelessWidget {
             color: active == true ? Colors.red : Colors.grey),
         Text(textbutton,
             style: TextStyle(
-                color: active == true ? Colors.red : Colors.grey))
+                color: active == true ? Colors.red : Colors.grey,fontSize: 8))
       ]),
     );
   }

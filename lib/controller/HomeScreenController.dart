@@ -1,6 +1,7 @@
 import 'package:ecommerceproject/view/screen/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 import '../ecoomercePlus/screen/auth/Home.dart';
@@ -30,10 +31,10 @@ class HomeScreenControllerImp extends HomeScreenController {
   ];
 
   List bottomappbar = [
-    {"title": "home", "icon": Icons.home},
-    {"title": "profile", "icon": Icons.person_pin_sharp},
-    {"title": "cart", "icon": Icons.shopping_cart},
-    {"title": "settings", "icon": Icons.settings}
+    {"title": "49".tr, "icon": Icons.home},
+    {"title": "50".tr, "icon": Icons.person_pin_sharp},
+    {"title": "51".tr, "icon": Icons.shopping_cart},
+    {"title": "52".tr, "icon": Icons.settings}
 
   ];
 
