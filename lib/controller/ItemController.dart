@@ -8,23 +8,11 @@ import 'CategoriesController.dart';
 
 class ItemController extends GetxController  {
   var item = <Item>[].obs;
-  var searchResults = <Item>[].obs;
-
-
-
-
-  // @override
-  // void onInit() {
-  //   fetchItem();
-  //    fetchItems();
-  // }
 
   @override
   void onInit() {
-    searchResults.value = item;
+    // searchResults.value = item;
     fetchItems();
-    // fetchSubjectTree(Get.find<HomeController>().subjectID.value);
-    print("objectttt");
     super.onInit();
 
   }
@@ -41,12 +29,18 @@ class ItemController extends GetxController  {
 
 
   void search(String query) {
+
     if (query.isEmpty) {
-      searchResults.value = item; // If the query is empty, show all items
+      print("kkkkk");
+      fetchItems();
+      // item.value = item;
+      //     update();
     } else {
-      searchResults.value = item.where((i) => i.name.toLowerCase().contains(query.toLowerCase())).toList();
+      item.value = item.where((i) => i.name.toLowerCase().contains(query.toLowerCase())).toList();
     }
+    update();
   }
+
 
 }
 // class ItemsController extends GetxController {

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../screen/auth/Payment.dart';
 import 'ButtonOrder.dart';
 
 class CustomButtonNavigation extends StatelessWidget {
@@ -63,7 +64,7 @@ class CustomButtonNavigation extends StatelessWidget {
               textButton:'Place Order' ,
               onPressed: (){
 
-                Get.to(Checkout());
+                Get.to(CreditCardPage());
               },
             ),
           )

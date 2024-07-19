@@ -29,7 +29,8 @@ class Items extends StatelessWidget {
                       children: [
                         Expanded(
                           child: TextFormField(
-                            onChanged: (value) => controller.search(value),
+                            onChanged: (value) { controller.search(value);
+                            },
                             decoration: InputDecoration(
                               prefixIcon: Icon(Icons.search, size: 30),
                               hintText: 'Find Product',
