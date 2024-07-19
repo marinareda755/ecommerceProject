@@ -103,6 +103,7 @@
 import 'package:ecommerceproject/controller/profile_controller.dart';
 import 'package:ecommerceproject/core/constant/color.dart';
 import 'package:ecommerceproject/core/constant/imageasset.dart';
+import 'package:ecommerceproject/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -135,9 +136,9 @@ class Profile extends StatelessWidget {
                               backgroundColor: Colors.grey[100],
                               backgroundImage: controller.imageFile != null
                                   ? FileImage(controller.imageFile!)
-                                  : controller.myServices.sharedPreferences.getString('profileImageUrl') != null
-                                  ? NetworkImage(controller.myServices.sharedPreferences.getString('profileImageUrl')!)
-                                  : AssetImage(AppImageAsset.profile) as ImageProvider,
+                                  : controller.myServices.sharedPreferences.getString('profileImageUrl') == null || controller.myServices.sharedPreferences.getString('profileImageUrl') == ''
+                                  ?AssetImage(AppImageAsset.profile)
+                                  :NetworkImage(controller.myServices.sharedPreferences.getString('profileImageUrl')!) ,
                             ),
                           ),
                           Positioned(
@@ -156,7 +157,7 @@ class Profile extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              controller.getUserEmail(),
+                              controller.myServices.sharedPreferences.getString('email')!,
                               style: TextStyle(
                                   color: AppColor.primaryColor, fontSize: 16),
                             ),
@@ -179,18 +180,18 @@ class Profile extends StatelessWidget {
                           ),
                           ListTile(
                             onTap: () {
-                              // Get.toNamed(AppRoute.ordersarchive );
+                              Get.toNamed(AppRoute.homePage );
                             },
-                            trailing: Icon(Icons.card_travel),
-                            title: Text("Archive"),
+                            trailing: Icon(Icons.home_outlined),
+                            title: Text("Back To Home"),
                           ),
-                          ListTile(
-                            onTap: () {
-                              // Get.toNamed(AppRoute.addressview);
-                            },
-                            trailing: Icon(Icons.location_on_outlined),
-                            title: Text("Address"),
-                          ),
+                          // ListTile(
+                          //   onTap: () {
+                          //     // Get.toNamed(AppRoute.addressview);
+                          //   },
+                          //   trailing: Icon(Icons.location_on_outlined),
+                          //   title: Text("Address"),
+                          // ),
                           ListTile(
                             onTap: () {
                               controller.logOut();

@@ -87,16 +87,14 @@
 //   }
 // }
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerceproject/core/constant/routes.dart';
 import 'package:ecommerceproject/core/services/services.dart';
-import 'package:ecommerceproject/ecoomercePlus/screen/auth/Home.dart';
-import 'package:ecommerceproject/ecoomercePlus/screen/auth/HomeScreen.dart';
-import 'package:ecommerceproject/view/screen/HomeScreen.dart';
-import 'package:ecommerceproject/view/screen/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 abstract class LoginController extends GetxController {
   login();
@@ -104,6 +102,7 @@ abstract class LoginController extends GetxController {
   goToSignUp();
 
   goToForgetPassword();
+  signInWithGoogle();
 }
 
 class LoginControllerImp extends LoginController {
@@ -111,6 +110,8 @@ class LoginControllerImp extends LoginController {
   late TextEditingController email;
   late TextEditingController password;
   MyServices myServices=Get.find();
+  final _firestore=FirebaseFirestore.instance;
+
 
   @override
   login() async {
@@ -129,6 +130,8 @@ class LoginControllerImp extends LoginController {
           myServices.sharedPreferences.setString('step', '2');
           print("================================"+credential.user!.uid);
           print("================================"+credential.user!.email.toString());
+          setCurrentUser(credential.user!.uid,'');
+
           Get.offAllNamed(AppRoute.homeScreen);
 
         } else {
@@ -222,6 +225,68 @@ class LoginControllerImp extends LoginController {
     }
 
     Get.offNamed(AppRoute.login);
+  }
+
+  @override
+
+  Future signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    if(googleUser==null){
+      return;
+    }
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    await FirebaseAuth.instance.signInWithCredential(credential);
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null){
+      await myServices.sharedPreferences.setString('email', user!.email.toString());
+      await myServices.sharedPreferences.setString('id', user.uid);
+      myServices.sharedPreferences.setString('step', '2');
+      setCurrentUser(user.uid,user.photoURL,);
+
+      print("================================"+user!.email.toString());
+    }
+      // Get.offNamed(AppRoute.homeScreen);
+    Get.offAllNamed(AppRoute.homeScreen);
+
+  }
+
+  Future<void> setCurrentUser(String uid,image) async {
+    print('errortrr');
+
+    try{
+     QuerySnapshot query = await _firestore.collection('user').where('uid', isEqualTo: uid).get();
+     if(query.size > 0){
+       print(query.size.toString()+'size');
+       myServices.sharedPreferences.setString('profileImageUrl', query.docs[0].get('image'));
+
+     }else{
+
+       _firestore.collection('user').add({
+         'email':email.text,
+         'image':image ==''?'':image,
+         'uid':uid,
+       });
+     }
+
+    }catch(e){
+    }
+
+    print('errortrr'+{
+      'email':email.text,
+      'image':'',
+      'uid':uid,
+    }.toString());
   }
 }
 

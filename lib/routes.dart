@@ -2,7 +2,9 @@ import 'package:ecommerceproject/core/constant/routes.dart';
 import 'package:ecommerceproject/core/middleware/mymiddleware.dart';
 import 'package:ecommerceproject/ecoomercePlus/screen/auth/Home.dart';
 import 'package:ecommerceproject/ecoomercePlus/screen/auth/Setting.dart';
+import 'package:ecommerceproject/view/screen/contactus.dart';
 import 'package:ecommerceproject/view/screen/HomeScreen.dart';
+import 'package:ecommerceproject/view/screen/aboutus.dart';
 import 'package:ecommerceproject/view/screen/auth/forgetpassword/forgetpassword.dart';
 import 'package:ecommerceproject/view/screen/auth/login.dart';
 import 'package:ecommerceproject/view/screen/auth/forgetpassword/resetpassword.dart';
@@ -13,6 +15,7 @@ import 'package:ecommerceproject/view/screen/auth/forgetpassword/verfiycode.dart
 import 'package:ecommerceproject/view/screen/auth/verifyemailsignup.dart';
 import 'package:ecommerceproject/view/screen/home.dart';
 import 'package:ecommerceproject/view/screen/language.dart';
+import 'package:ecommerceproject/view/screen/languagesetting.dart';
 import 'package:ecommerceproject/view/screen/onboarding.dart';
 import 'package:ecommerceproject/view/screen/profile.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +42,9 @@ List<GetPage<dynamic>>? routes=[
   GetPage(name: AppRoute.homeScreen, page: ()=>HomeScreen()),
   GetPage(name: AppRoute.setting, page: ()=>Setting()),
   GetPage(name: AppRoute.homePage, page: ()=>HomePage()),
+  GetPage(name: AppRoute.aboutUs, page: ()=>AboutUs()),
+  GetPage(name: AppRoute.contactUs, page: ()=>ContactUs()),
+  GetPage(name: AppRoute.languageSetting, page: ()=>LanguageSetting()),
 ];
 
 

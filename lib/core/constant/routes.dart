@@ -15,4 +15,7 @@ class AppRoute{
   static const String homeScreen='/homescreen';
   static const String homePage='/homepage';
   static const String setting='/Setting';
+  static const String contactUs='/contactus';
+  static const String aboutUs='/aboutus';
+  static const String languageSetting='/languagesetting';
 }

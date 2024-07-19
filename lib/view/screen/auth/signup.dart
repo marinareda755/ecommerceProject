@@ -1,5 +1,6 @@
 import 'package:ecommerceproject/controller/auth/signup_controller.dart';
 import 'package:ecommerceproject/core/constant/color.dart';
+import 'package:ecommerceproject/core/constant/imageasset.dart';
 import 'package:ecommerceproject/core/functions/validinput.dart';
 import 'package:ecommerceproject/view/widget/auth/custombuttonauth.dart';
 import 'package:ecommerceproject/view/widget/auth/customtextbodyauth.dart';
@@ -92,6 +93,8 @@ class SignUp extends StatelessWidget {
                 CustomButtonAuth(text: 'Sign Up',onPressed: (){
                   controller.signUp();
                 },),
+
+
                 SizedBox(height: 30,),
                 CustomTextSignUpOrSignIn(textone: ' Have An Account ?   ', texttwo: 'Sign In', onTap: () {
                   controller.goToSignIn();

@@ -229,10 +229,14 @@
 
 
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerceproject/core/constant/routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+
+import '../../core/services/services.dart';
 
 abstract class SignUpController extends GetxController {
   signUp();
@@ -246,7 +250,6 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController phone;
   late TextEditingController password;
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
-
 
   @override
   signUp() async {
@@ -296,6 +299,7 @@ class SignUpControllerImp extends SignUpController {
     password = TextEditingController();
     super.onInit();
   }
+
 }
 
 
