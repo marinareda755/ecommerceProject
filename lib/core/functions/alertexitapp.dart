@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 Future<bool>alertExitApp(){
   Get.defaultDialog(
     title: 'exit',
-    middleText: 'Are You Sure you Want To Exit',
+    middleText: 'Are You Sure ?',
     actions: [
       ElevatedButton(
 

@@ -166,7 +166,7 @@ class LoginControllerImp extends LoginController {
           );
         }else  {
           Get.snackbar(
-          'error' ,'Please Sign Up Before You Login',
+          'error' ,'Please Make Sure Of your Data',
             snackPosition: SnackPosition.TOP,
             backgroundColor: Colors.red,
             colorText: Colors.white,
