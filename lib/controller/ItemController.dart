@@ -8,6 +8,7 @@ import 'CategoriesController.dart';
 
 class ItemController extends GetxController  {
   var item = <Item>[].obs;
+  var searchResults = <Item>[].obs;
 
 
 
@@ -20,7 +21,7 @@ class ItemController extends GetxController  {
 
   @override
   void onInit() {
-
+    searchResults.value = item;
     fetchItems();
     // fetchSubjectTree(Get.find<HomeController>().subjectID.value);
     print("objectttt");
@@ -35,6 +36,16 @@ class ItemController extends GetxController  {
     var itemList = snapshot.docs.map((doc) => Item.fromFirestore(doc)).toList();
     item.assignAll(itemList);
     update();
+  }
+
+
+
+  void search(String query) {
+    if (query.isEmpty) {
+      searchResults.value = item; // If the query is empty, show all items
+    } else {
+      searchResults.value = item.where((i) => i.name.toLowerCase().contains(query.toLowerCase())).toList();
+    }
   }
 
 }

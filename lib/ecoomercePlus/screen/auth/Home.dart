@@ -177,11 +177,16 @@ class HomePage extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            Text(
-                              controller.items[i].categories,
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.grey,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal:  8.0),
+                              child: Text(
+                                controller.items[i].description,
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.grey,
+                                  overflow: TextOverflow.ellipsis,
+                                  
+                                ),
                               ),
                             ),
                             Text(

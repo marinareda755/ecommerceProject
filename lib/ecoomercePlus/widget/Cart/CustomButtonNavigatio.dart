@@ -1,5 +1,8 @@
+import 'package:ecommerceproject/ecoomercePlus/screen/auth/Checkout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import 'ButtonOrder.dart';
 
@@ -60,7 +63,7 @@ class CustomButtonNavigation extends StatelessWidget {
               textButton:'Place Order' ,
               onPressed: (){
 
-                // Get.to();
+                Get.to(Checkout());
               },
             ),
           )

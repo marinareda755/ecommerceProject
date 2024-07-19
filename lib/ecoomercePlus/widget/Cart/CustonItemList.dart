@@ -23,7 +23,7 @@ class CustonItemList extends StatelessWidget {
           Expanded(
               flex: 3,
               child: ListTile(
-                title: Text(name,style: TextStyle(fontSize: 25),),
+                title: Text(name,style: TextStyle(fontSize: 20),),
                 subtitle: Text(price,style: TextStyle(color: Colors.red,fontSize: 15),),)
           ),
           Expanded(child: Column(
@@ -32,7 +32,12 @@ class CustonItemList extends StatelessWidget {
                   ,child: IconButton(onPressed: () => cartController.increment(index), icon: Icon(Icons.add))),
               Container(
                   height: 30,
-                  child:  Obx(() => Text('${cartController.counts[index]}')),),
+                  child:
+                   Obx(() =>
+                      Text(
+                      '${cartController.counts[index]}'
+                  )),
+           ),
               Container(
                   height: 30,
                   child: IconButton( onPressed: () => cartController.decrement(index), icon: Icon(Icons.remove))),

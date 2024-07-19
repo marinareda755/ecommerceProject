@@ -34,7 +34,7 @@ class Checkout extends StatelessWidget {
       appBar: AppBar(
         title: Row(
           children: [
-            Icon(CupertinoIcons.back),
+
 
             Container(
               margin: EdgeInsets.all(80),
@@ -53,7 +53,7 @@ class Checkout extends StatelessWidget {
                 Text(
                   'Choose Payment Method',
                   style: TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.bold, color: Colors.red),
+                      fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 InkWell(
                   onTap: (){
@@ -77,7 +77,7 @@ class Checkout extends StatelessWidget {
                 Text(
                   'Choose Delivery Type',
                   style: TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.bold, color: Colors.red),
+                      fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 SizedBox(
                   height: 10,
@@ -88,12 +88,12 @@ class Checkout extends StatelessWidget {
                       onTap: (){
                         controller.ChooseDelivartType('Delivery');
                       },
-                        child: CardDeliveryType(title: 'Delivery', active: controller.delivaryType=='Delivery'? true:false, imagename: 'assets/Imagesdelivary.jpg')),
+                        child: CardDeliveryType(title: 'Delivery', active: controller.delivaryType=='Delivery'? true:false, imagename: 'assets/images/delivary.jpg')),
                     Spacer(),
                     InkWell(
                       onTap: (){
                         controller.ChooseDelivartType('Revice');                     },
-                        child: CardDeliveryType(title: 'Deriver thru', active:controller.delivaryType=='Revice'? true:false, imagename: 'assets/Imagesderiverthru.jpg')),
+                        child: CardDeliveryType(title: 'Deriver thru', active:controller.delivaryType=='Revice'? true:false, imagename: 'assets/images/deriverthru.jpg')),
                   ],
                 ),
                 SizedBox(height: 20,),
@@ -104,7 +104,7 @@ class Checkout extends StatelessWidget {
                     Text(
                       'Choose Delivery Type',
                       style: TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.bold, color: Colors.red),
+                          fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
                     ),
                     SizedBox(height: 10,),
                     CardAddres(title: 'Home', subtitle: 'frial half tagned street 10', lisactive: true,),

@@ -31,7 +31,7 @@ class Cart extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          TopCardCart(massege: 'You Have 2 Item In Your Cart'),
+      Obx(() =>TopCardCart(massege: 'You Have ${cartController.itemCartControl.length} Item(s) In Your Cart'),),
           Container(
             padding: EdgeInsets.all(8),
             child: ListView.builder(
@@ -39,6 +39,7 @@ class Cart extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               itemCount:  controller_.itemCartControl .length,
               itemBuilder: (context, index) {
+                // final item = cartController.filteredItems[index];
                 return CustonItemList(
                   name: controller_.itemCartControl[index].name,
                   price: controller_.itemCartControl[index].price,

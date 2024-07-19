@@ -14,7 +14,7 @@ class DetailsItem extends StatelessWidget {
    DetailsItem({super.key, required this.item, });
   late SharedPreferences sharedPreferences;
   late  String mail;
-  void getShared() async{
+   getShared() async{
     sharedPreferences= await SharedPreferences.getInstance();
     mail=sharedPreferences.getString('email').toString();
     print("object"+mail.toString());
@@ -36,15 +36,37 @@ class DetailsItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           color: Colors.red,
-          onPressed: () {
-            getShared();
-            _firestore.collection('addToCard').add({
-              'name': item.name,
-              'user': mail,
-              'image': item.image,
-              'price': item.price,
+          onPressed: () async{
+           await getShared();
+            // _firestore.collection('addToCard').add({
+            //   'name': item.name,
+            //   'user': mail,
+            //   'image': item.image,
+            //   'price': item.price,
+            //   'count': item.count,
+            //
+            // });
+           final existingItemQuery = await _firestore.collection('addToCard')
+               .where('name', isEqualTo: item.name)
+               .where('user', isEqualTo: mail)
+               .get();
 
-            });
+           if (existingItemQuery.docs.isNotEmpty) {
+             // Item exists, update the count
+             final existingItem = existingItemQuery.docs.first;
+             await _firestore.collection('addToCard').doc(existingItem.id).update({
+               'count': existingItem['count'] + 1,
+             });
+           } else {
+             // Item does not exist, add new item
+             await _firestore.collection('addToCard').add({
+               'name': item.name,
+               'user': mail,
+               'image': item.image,
+               'price': item.price,
+               'count': 1,
+             });
+           }
             Get.to(Cart());
           },
           child: const Text(
@@ -91,13 +113,18 @@ class DetailsItem extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              child: Text(
-                item.categories,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Container(
+                height: 160,
+                child: Text(
+                  item.description,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                    overflow: TextOverflow.clip
+                  ),
                 ),
               ),
             ),
