@@ -26,7 +26,7 @@ class  VerfiyEmailSignUp extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
         title: Text(
-          'Verification Code',
+          '73'.tr,
           style: Theme.of(context)
               .textTheme
               .headlineLarge!
@@ -37,16 +37,16 @@ class  VerfiyEmailSignUp extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(
           children: [
-            CustomTextTitleAuth(text:'Check Code' ,),
+            CustomTextTitleAuth(text:'74'.tr,),
 
             SizedBox(
               height: 10,
             ),
-            CustomTextBodyAuth(text:'Please Enter The Digit Code To marina@gmail.com ' ),
+            CustomTextBodyAuth(text:'75'.tr, ),
             SizedBox(
               height: 30,
             ),
-            CustomButtonAuth(text: 'continue',onPressed: (){
+            CustomButtonAuth(text: '8'.tr,onPressed: (){
               // controller.goToSuccesSignUp();
               Get.offNamed(AppRoute.login);
 

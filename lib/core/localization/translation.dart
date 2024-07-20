@@ -77,6 +77,9 @@ class MyTranslation extends Translations{
       '70':' التسوق',
       '71':'تسجيل الدخول بجوجل',
       '72':'ابحث عن المنتج',
+      '73':'تقعيل اللينك',
+      '74':'افحص gmail الخاص بك',
+      '75':'من فصلك افحص ال gmail وفعل الرابط',
 
 
     },
@@ -156,6 +159,9 @@ class MyTranslation extends Translations{
       '70':' Shopping',
       '71':'Login With Google',
       '72':'Find Product',
+      '73':'Verification Link',
+      '74':'Check Gmail',
+      '75':'Please Check your Gmail Messages To Verify Your Account',
 
 
 
