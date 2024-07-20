@@ -66,21 +66,21 @@ class Setting extends StatelessWidget {
                     Get.toNamed(AppRoute.languageSetting);
                   },
                   trailing: Icon(Icons.language),
-                  title: Text("Language"),
+                  title: Text("61".tr),
                 ),
                 ListTile(
                   onTap: () {
                     Get.toNamed(AppRoute.aboutUs);
                   },
                   trailing: Icon(Icons.help_outline_rounded),
-                  title: Text("About us"),
+                  title: Text("62".tr),
                 ),
                 ListTile(
                   onTap: () {
                     Get.toNamed(AppRoute.contactUs);
                   },
                   trailing: Icon(Icons.phone_callback_outlined),
-                  title: Text("Contact us"),
+                  title: Text("63".tr),
                 ),
                 // ListTile(
                 //   onTap: () {

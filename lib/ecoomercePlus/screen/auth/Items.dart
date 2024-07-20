@@ -33,7 +33,7 @@ class Items extends StatelessWidget {
                             },
                             decoration: InputDecoration(
                               prefixIcon: Icon(Icons.search, size: 30),
-                              hintText: 'Find Product',
+                              hintText: '72'.tr,
                               hintStyle: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,

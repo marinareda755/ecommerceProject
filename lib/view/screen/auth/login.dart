@@ -101,7 +101,7 @@ class Login extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Login With Google   '),
+                      Text('71'.tr),
                       Image.asset(
                         AppImageAsset.google,
                         width: 20,

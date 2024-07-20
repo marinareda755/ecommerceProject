@@ -73,8 +73,8 @@ class DetailsItem extends StatelessWidget {
             }
             Get.to(Cart());
           },
-          child: const Text(
-            "Add To Cart",
+          child:  Text(
+            "68".tr,
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
@@ -86,16 +86,16 @@ class DetailsItem extends StatelessWidget {
       endDrawer: const Drawer(),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.grey),
-        title: const Row(
+        title:  Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(CupertinoIcons.shopping_cart),
             Text(
-              ' Make',
+              "69".tr,
               style: TextStyle(color: Colors.black),
             ),
             Text(
-              ' Shopping',
+              "70".tr,
               style: TextStyle(color: Colors.red),
             ),
           ],

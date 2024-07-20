@@ -1,5 +1,6 @@
 import 'package:ecommerceproject/view/widget/language/custombuttonlang.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ContactUs extends StatefulWidget {
   const ContactUs({super.key});
@@ -12,12 +13,12 @@ class _ContactUsState extends State<ContactUs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Contact Us'),),
+      appBar: AppBar(title: Text('63'.tr),),
       body: Container(
         padding: EdgeInsets.all(20),
         child:Column(
           children: [
-            Text('Leave Your Feed Back',style: TextStyle(fontSize: 16),),
+            Text('66'.tr,style: TextStyle(fontSize: 16),),
             SizedBox(height: 80,),
           TextField(
             decoration: InputDecoration(
@@ -43,7 +44,7 @@ class _ContactUsState extends State<ContactUs> {
 
             ),
             SizedBox(height: 30,),
-           CustomButtonLang(textbutton: 'Send',onPressed: (){},)
+           CustomButtonLang(textbutton: '67'.tr,onPressed: (){},)
           ],
         ),
       ),

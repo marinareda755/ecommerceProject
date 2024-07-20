@@ -24,7 +24,7 @@ class CustomButtonNavigation extends StatelessWidget {
             children: [
               Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text('price',style: TextStyle(fontSize: 16,color: Colors.black87,fontWeight: FontWeight.bold),)),
+                  child: Text('57'.tr,style: TextStyle(fontSize: 16,color: Colors.black87,fontWeight: FontWeight.bold),)),
               Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Text(price,style: TextStyle(fontSize: 16,color: Colors.red,fontWeight: FontWeight.bold),)),
@@ -35,7 +35,7 @@ class CustomButtonNavigation extends StatelessWidget {
             children: [
               Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text('Shopping',style: TextStyle(fontSize: 16,color: Colors.black87,fontWeight: FontWeight.bold),)),
+                  child: Text('58'.tr,style: TextStyle(fontSize: 16,color: Colors.black87,fontWeight: FontWeight.bold),)),
               Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Text(shopping,style: TextStyle(fontSize: 16,color: Colors.red,fontWeight: FontWeight.bold),)),
@@ -50,7 +50,7 @@ class CustomButtonNavigation extends StatelessWidget {
             children: [
               Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text('Total price',style: TextStyle(fontSize: 16,color: Colors.black87,fontWeight: FontWeight.bold), )),
+                  child: Text('59'.tr,style: TextStyle(fontSize: 16,color: Colors.black87,fontWeight: FontWeight.bold), )),
               Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Text(totalprice,style: TextStyle(fontSize: 16,color: Colors.red,fontWeight: FontWeight.bold),)),
@@ -61,7 +61,7 @@ class CustomButtonNavigation extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 25),
             child: CustomButtonCart(
-              textButton:'Place Order' ,
+              textButton:'60'.tr ,
               onPressed: (){
 
                 Get.to(CreditCardPage());

@@ -4,7 +4,7 @@ class Cartmodel {
   final String name;
   final String price;
   final String image;
-  final int count;
+  int count=0;
 
 
 
