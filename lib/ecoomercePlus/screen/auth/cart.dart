@@ -76,7 +76,9 @@ class Cart extends StatelessWidget {
                                       height: 30,
                                       child: IconButton(
                                           onPressed: () {
-                                            cartController.increment(index);
+                                            cartController.itemCartControl[index].count++;
+                                            cartController.update();
+                                            // cartController.increment(index);
                                           },
                                           icon: Icon(Icons.add))),
                                   Container(
@@ -88,7 +90,9 @@ class Cart extends StatelessWidget {
                                       height: 30,
                                       child: IconButton(
                                           onPressed: () {
-                                            cartController.decrement(index);
+                                            cartController.itemCartControl[index].count--;
+                                            cartController.update();
+                                            // cartController.decrement(index);
                                           },
                                           icon: Icon(Icons.remove))),
                                 ],
